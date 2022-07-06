@@ -1,25 +1,18 @@
-import styled from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Context from "./contexts/Context";
+import { useState } from "react";
+import Home from "../src/components/Home"
 
-function App() {
-  return (
-    <Main>
-      <div>
-        <p>Ola eu sou sua loja </p>       
-      </div>
-    </Main>
-  );
+
+export default function App() {
+    const [data, setData] = useState([{}]);
+    return (
+        <Context.Provider value={{ data, setData }}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                </Routes>
+            </BrowserRouter>
+        </Context.Provider>
+    )
 }
-
-export default App;
-
-
-const Main = styled.div`
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  p{
-    font-size: larger;
-  }
-`;
