@@ -1,12 +1,12 @@
-import { style } from '@mui/system'
 import React from 'react'
 import styled from 'styled-components'
-
+import Header from './Header'
 
 const Home = () => {
     return (
         <Container>
-
+            <Header />
+            
         </Container>
     );
 }
@@ -14,5 +14,6 @@ const Home = () => {
 export default Home
 
 const Container = styled.div`
+display: flex;
 
 `;
