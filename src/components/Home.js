@@ -1,9 +1,18 @@
+import { style } from '@mui/system'
 import React from 'react'
+import styled from 'styled-components'
+
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
+    return (
+        <Container>
+
+        </Container>
+    );
 }
 
 export default Home
+
+const Container = styled.div`
+
+`;
