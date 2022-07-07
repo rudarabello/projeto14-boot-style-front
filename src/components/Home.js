@@ -12,7 +12,7 @@ const Home = () => {
             <Header />
             <Banner />
             <Boots />
-            <Hoods/>
+            <Hoods />
             <Footer />
         </Container>
     );

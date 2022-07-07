@@ -1,0 +1,22 @@
+.buttons {
+    width: 100%;
+    text-align: center;
+}
+
+.buttons button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons button:first-child img {
+    transform: rotate(180deg);
+}
+.a{
+    color: black;
+}
+
+.carousel-indicators{
+    color: brown;
+
+}
