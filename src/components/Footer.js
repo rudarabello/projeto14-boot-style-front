@@ -64,9 +64,6 @@ align-items: flex-start;
 padding: 15px;
 background-color: #AD7373;
 `;
-const Logo = styled.div`
-display: flex;
-`;
 const Contact = styled.div`
 display: flex;
 flex-direction: column;

@@ -1,8 +1,9 @@
 import React from 'react'
+import boot from '../assets/pBoots.png'
 
 const Boots = () => {
   return (
-    <div>Boots</div>
+    <img src={boot} />
   )
 }
 
