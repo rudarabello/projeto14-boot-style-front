@@ -11,9 +11,9 @@ function Header() {
             <Logo>
                 <img src={logo} width="40%" />
             </Logo>
-            <CartOutline color={'#00000'}
-                height="50px"
-                width="50px" />
+            <CartOutline  color={'#00000'}
+                height="35px"
+                width="35px" />
         </Container>
     )
 }

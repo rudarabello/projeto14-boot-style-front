@@ -58,7 +58,8 @@ width: 100%;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-padding: 15px;
+padding: 5px;
+padding-left: 15px;
 background-color: #AD7373;
 `;
 const Contact = styled.div`
@@ -68,7 +69,7 @@ margin-bottom: 15px;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 700;
-font-size: 18px;
+font-size: 15px;
 line-height: 22px;
 a{
   color: #FFFFFF;
@@ -81,7 +82,7 @@ align-items: flex-start;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 700;
-font-size: 18px;
+font-size: 15px;
 line-height: 22px;
 `;
 const CopyRights = styled.div`
@@ -93,7 +94,7 @@ margin-bottom: 20px;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 700;
-font-size: 18px;
+font-size: 15px;
 line-height: 22px;
 p{
   color: #FFFFFF;
