@@ -42,7 +42,7 @@ const Menu = () => {
         <Container>
             <ul>
                 <li><Link to="/">Início</Link></li>
-                <li><Link to="/">Login</Link></li>
+                <li><Link to="/login">Login</Link></li>
                 <li><Link to="/">Cadastro</Link></li>
                 <li><Link to="/">Usuário</Link></li>
                 <li onClick={toggle}>Categorias</li>
