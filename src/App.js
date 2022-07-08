@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Context from "./contexts/Context";
 import { useState } from "react";
 import Home from "../src/components/Home"
+import RegisterScreen from "./components/RegisterScreen";
 
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/cadastrO" element={<RegisterScreen />} />
                 </Routes>
             </BrowserRouter>
         </Context.Provider>
