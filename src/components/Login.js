@@ -14,7 +14,7 @@ export default function Login() {
     const localUser = localStorage.getItem("user");
     const navigate = useNavigate()
     const { setData } = useContext(Context);
-    const URL = "https://git.heroku.com/boot-style-back.git/login";
+    const URL = "https://back-project-boot-style-back.herokuapp.com/login";
     const tempAxiosFunction = useRef();
     const axiosFunction = () => {
         if (localUser !== null) {
@@ -35,7 +35,7 @@ export default function Login() {
         }
         const promise = axios.post(URL, user);
         promise.then(response => GoTo(response.data));
-        promise.catch(error => alert(error.response.data.message));
+        promise.catch(error => alert(error));
     }
     function GoTo(data) {
         setData(data);
@@ -43,7 +43,8 @@ export default function Login() {
         localStorage.removeItem("user");
         const userStrigify = JSON.stringify(user);
         localStorage.setItem("user", userStrigify);
-        navigate('/home');
+        alert("Login realizado com sucesso!")
+        navigate('/');
     };
     return (
         <ContainerL>
@@ -72,7 +73,7 @@ export default function Login() {
                 </Form>
                 <Linkto>
                     <Link to="/sign-up">
-                        <a href="https://vercel.com/rudarabello/projeto13-mywallet-front/signup">
+                        <a href="https://git.heroku.com/boot-style-back.git/home">
                             Primeira vez? Cadastre-se!
                         </a>
                     </Link>
