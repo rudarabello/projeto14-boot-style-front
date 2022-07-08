@@ -1,28 +1,38 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
+import onClickOutside from "react-onclickoutside";
+import { MenuOutline } from "react-ionicons";
+import styled from "styled-components";
+
 
 function Dropdown() {
     const [showMenu, setShowMenu] = useState(false);
-    const onClick = () => {
+    const toggle = () => {
         if (showMenu === false) {
             setShowMenu(true);
         } else {setShowMenu(false)};
     }
 
+    Dropdown.handleClickOutside = () => setShowMenu(false);
+
     return (
-        <>
-            <Icon>
-                <ion-icon name="menu-sharp" onClick={onClick}></ion-icon>  
-            </Icon>
-            { showMenu ? <Menu /> : null}
-        </>
+        <div>
+            <MenuOutline onClick={toggle}
+                    color={'#00000'}
+                    height="50px"
+                    width="50px" />
+            { showMenu ? <Menu /> : null }
+        </div>
     )
 }
 
+const clickOutsideConfig = {
+    handleClickOutside: () => Dropdown.handleClickOutside,
+};
+
 const Menu = () => {
     const [showSubMenu, setShowSubMenu] = useState(false);
-    const onClick = () => {
+    const toggle = () => {
         if (showSubMenu === false) {
             setShowSubMenu(true);
         } else {setShowSubMenu(false)};
@@ -35,8 +45,8 @@ const Menu = () => {
                 <li><Link to="/">Login</Link></li>
                 <li><Link to="/">Cadastro</Link></li>
                 <li><Link to="/">Usuário</Link></li>
-                <li onClick={onClick}>Categorias</li>
-                { showSubMenu ? <SubMenu /> : null}
+                <li onClick={toggle}>Categorias</li>
+                { showSubMenu ? <SubMenu /> : null }
             </ul>
         </Container>
     )
@@ -52,13 +62,16 @@ const SubMenu = () => (
 )
 
 const Container = styled.div`
-    height: 100vh;
     width: 50vw;
     background-color: #AD7373;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 18px;
     color: #FFFFFF;
+    position: fixed;
+    z-index: 2;
+    top: 162px;
+    left: 0;
 
     li {
         height: 30px;
@@ -83,11 +96,4 @@ const SubContainer = styled.div`
     }
 `
 
-const Icon = styled.div`
-    ion-icon {
-        font-size: 32px;
-        color: #000000;
-    }
-`
-
-export default Dropdown;
+export default onClickOutside(Dropdown, clickOutsideConfig);
