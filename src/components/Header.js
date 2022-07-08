@@ -6,13 +6,15 @@ import Dropdown from "./Dropdown";
 
 function Header() {
     return (
-            <Container>
-                <Dropdown />
-                <Logo><img src={logo} width="100%" /></Logo>
-                <CartOutline color={'#00000'}
-                    height="50px"
-                    width="50px" />
-            </Container>
+        <Container>
+            <Dropdown />
+            <Logo>
+                <img src={logo} width="40%" />
+            </Logo>
+            <CartOutline color={'#00000'}
+                height="50px"
+                width="50px" />
+        </Container>
     )
 }
 
@@ -21,12 +23,16 @@ export default Header
 const Container = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: #AD7373;
-
 `;
 const Logo = styled.div`
     display: flex;
+    width: 100%;
+    img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 `;
