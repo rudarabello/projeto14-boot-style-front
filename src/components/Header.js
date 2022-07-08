@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from '../assets/Boots.png'
-import { CartOutline } from 'react-ionicons'
+import Cart from "./Cart";
 import Dropdown from "./Dropdown";
 
 function Header() {
@@ -9,9 +9,7 @@ function Header() {
             <Container>
                 <Dropdown />
                 <Logo><img src={logo} width="100%" /></Logo>
-                <CartOutline color={'#00000'}
-                    height="50px"
-                    width="50px" />
+                <Cart />
             </Container>
     )
 }
