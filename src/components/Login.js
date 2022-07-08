@@ -3,14 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import Context from "../contexts/Context";
-import logo from "../assets/MyWallet.png";
-import Loading from "../components/Loading";
+import logo from "../assets/Boots.png";
+import Footer from "./Footer";
+import { Container } from "react-bootstrap";
 
 
 
 export default function Login() {
-
-    const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const localUser = localStorage.getItem("user");
@@ -45,108 +44,68 @@ export default function Login() {
         localStorage.removeItem("user");
         const userStrigify = JSON.stringify(user);
         localStorage.setItem("user", userStrigify);
-        navigate('/wallet');
+        navigate('/home');
     };
-    setTimeout(() => setLoading(true), 1000);
     return (
-        <StyledLogin>
-            {loading === true ?
-                <Page>
-                    <img src={logo} alt="Logo My Wallet" />
-                    <Form onSubmit={handleLogin}>
-                        <Input
-                            onChange={(e) => {
-                                setEmail(e.target.value);
-                            }}
-                            value={email}
-                            placeholder="E-mail"
-                            type="email"
-                            required
-                            autoComplete="email"
-                        />
-                        <Input
-                            onChange={(e) => {
-                                setPassword(e.target.value);
-                            }}
-                            value={password}
-                            placeholder="Senha"
-                            type="password"
-                            required
-                            autoComplete="password"
-                        />
-                        <FormButton type="submit">ENTRAR</FormButton>
-                    </Form>
-                    <Linkto>
-                        <Link to="/sign-up">
-                            <a href="https://vercel.com/rudarabello/projeto13-mywallet-front/signup">
-                                Primeira vez? Cadastre-se!
-                            </a>
-                        </Link>
-                    </Linkto>
-                </Page> :
-                <Loading />}
-        </StyledLogin>
+        <ContainerL>
+            <Page>
+                <img src={logo} alt="Logo loja" />
+                <Form onSubmit={handleLogin}>
+                    <Input
+                        onChange={(e) => {
+                            setEmail(e.target.value);
+                        }}
+                        value={email}
+                        placeholder="E-mail"
+                        type="email"
+                        required
+                        autoComplete="email" />
+                    <Input
+                        onChange={(e) => {
+                            setPassword(e.target.value);
+                        }}
+                        value={password}
+                        placeholder="Senha"
+                        type="password"
+                        required
+                        autoComplete="password" />
+                    <FormButton type="submit">ENTRAR</FormButton>
+                </Form>
+                <Linkto>
+                    <Link to="/sign-up">
+                        <a href="https://vercel.com/rudarabello/projeto13-mywallet-front/signup">
+                            Primeira vez? Cadastre-se!
+                        </a>
+                    </Link>
+                </Linkto>
+            </Page>
+            <Footer />
+        </ContainerL>
     )
 };
 
-
-const Linkto = styled.div`
-text-decoration: none !important;
-a{
-    font-family: 'Raleway';
-font-style: normal;
-font-weight: 700;
-font-size: 15px;
-line-height: 18px;
-text-decoration: none !important;
-}
-:hover {
-    cursor: pointer;
-    box-shadow: 0px 0px 10px rgba(999, 999, 999, 0.9);
-    }
-`;
-
-
-const StyledLogin = styled.div`
-    width: 100%;
+const ContainerL = styled.div`
     height: 100vh;
-    background-color: #8C11BE;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    a{
-        margin-top: 8px;
-        color: #FFFFFF;
-        font-size: 14px;
-        text-decoration: underline;
-        font-family: "Roboto";
-    }
-    img{
-        width: 100%;
-        height: 100%;
-        margin-bottom: 20px;
-    }
-`
+`;
 const Page = styled.div`
 display: flex;
-flex-direction: column;
-align-items: center;
-max-width: 240px;
-`;
-
-
-const Form = styled.form`
 width: 100%;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+img{
+    margin-top: 150px;
+}
+`;
+const Form = styled.form`
+max-width: 240px;
 display: flex;
 flex-direction: column;
 gap: 6px;
 margin-bottom: 25px;
 `;
-
-
-
 const Input = styled.input`
 width: 100%;
 height: 45px;
@@ -163,12 +122,11 @@ font-size: 14px;
 line-height: 16px;
 color: #7E7E7E;
 `;
-
 const FormButton = styled.button`
 width: 100%;
 height: 45px;
 border: none;
-background: #A328D6;
+background: #AD7373;
 border-radius: 8px;
 font-family: 'Roboto';
 font-style: normal;
@@ -177,4 +135,22 @@ font-size: 14px;
 line-height: 16px;
 color: #FFFFFF;
 margin-top: 20px;
+`;
+const Linkto = styled.div`
+text-decoration: none !important;
+margin-bottom: 50px;
+a{
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 18px;
+color: #000000;
+text-decoration: none !important;
+margin-bottom: 50px;
+}
+:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(999, 999, 999, 0.9);
+    }
 `;
