@@ -26,9 +26,6 @@ function Footer() {
           <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/diners@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/diners@2x.png" class="icon-logo lazyloaded" alt="diners" width="40" height="25" />
           <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/br/aura@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/br/aura@2x.png" class="icon-logo lazyloaded" alt="br_aura" width="40" height="25" />
           <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/br/boleto@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/br/boleto@2x.png" class="icon-logo lazyloaded" alt="br_boleto" width="40" height="25" />
-          <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/br/elo@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/br/elo@2x.png" class="icon-logo lazyloaded" alt="br_elo" width="40" height="25" />
-          <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/br/hipercard@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/br/hipercard@2x.png" class="icon-logo lazyloaded" alt="br_hipercard" width="40" height="25" />
-          <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/pagseguro@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/pagseguro@2x.png" class="icon-logo lazyloaded" alt="pagseguro" width="40" height="25" />
         </Cards>
       </Payment>
       <CopyRights>
@@ -61,23 +58,46 @@ width: 100%;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-padding: 15px;
+padding: 5px;
+padding-left: 15px;
 background-color: #AD7373;
 `;
 const Contact = styled.div`
 display: flex;
 flex-direction: column;
 margin-bottom: 15px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 22px;
+a{
+  color: #FFFFFF;
+}
 `;
 const Payment = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 22px;
 `;
 const CopyRights = styled.div`
 display: flex;
 flex-direction: column;
-align-items: center;
+
 margin-top: 20px;
 margin-bottom: 20px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 22px;
+p{
+  color: #FFFFFF;
+  text-align: left;
+}
 `;

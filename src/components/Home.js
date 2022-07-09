@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 import Banner from './Banner';
-import Products from './Products.js';
+import Products from './Products';
 import Footer from './Footer';
 
 const Home = () => {
