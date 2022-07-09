@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from '../assets/Boots.png'
-import Cart from "./Cart";
+import DisplayCart from "./Cart";
 import Dropdown from "./Dropdown";
 
 function Header() {
@@ -9,7 +9,7 @@ function Header() {
             <Container>
                 <Dropdown />
                 <Logo><img src={logo} width="100%" /></Logo>
-                <Cart />
+                <DisplayCart />
             </Container>
     )
 }
