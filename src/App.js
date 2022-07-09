@@ -12,7 +12,7 @@ export default function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/cadastrO" element={<RegisterScreen />} />
+                    <Route path="/cadastro" element={<RegisterScreen />} />
                 </Routes>
             </BrowserRouter>
         </Context.Provider>
