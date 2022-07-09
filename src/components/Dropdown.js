@@ -18,8 +18,8 @@ function Dropdown() {
         <div>
             <MenuOutline onClick={toggle}
                     color={'#00000'}
-                    height="50px"
-                    width="50px" />
+                    height="35px"
+                    width="35px" />
             { showMenu ? <Menu /> : null }
         </div>
     )
@@ -41,7 +41,7 @@ const Menu = () => {
         <Container>
             <ul>
                 <li><Link to="/">Início</Link></li>
-                <li><Link to="/">Login</Link></li>
+                <li><Link to="/login">Login</Link></li>
                 <li><Link to="/">Cadastro</Link></li>
                 <li><Link to="/">Usuário</Link></li>
                 <li onClick={toggle}>Categorias</li>
@@ -70,8 +70,9 @@ const Container = styled.div`
     color: #FFFFFF;
     position: fixed;
     z-index: 2;
-    top: 162px;
+    top: 47px;
     left: 0;
+    
 
     li {
         height: 30px;
