@@ -3,6 +3,7 @@ import Context from "./contexts/Context";
 import { useState } from "react";
 import Home from "../src/components/Home"
 import RegisterScreen from "./components/RegisterScreen";
+import Login from "../src/components/Login"
 
 
 export default function App() {
@@ -12,7 +13,8 @@ export default function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/cadastrO" element={<RegisterScreen />} />
+                    <Route path="/cadastro" element={<RegisterScreen />} />
+                    <Route path="/login" element={<Login />} />
                 </Routes>
             </BrowserRouter>
         </Context.Provider>
