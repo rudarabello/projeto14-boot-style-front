@@ -1,8 +1,6 @@
-import { useContext } from "react";
 import { TrashOutline } from "react-ionicons";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Context from "../contexts/Context";
 
 function Cart() {
     return (
@@ -52,6 +50,7 @@ const Container = styled.div`
     height: 100vh;
     width: 100vw;
     background-color: #FFFFFF;
+    border-top: 1px solid #FFFFFF; 
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;

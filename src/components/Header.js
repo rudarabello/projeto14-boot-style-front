@@ -19,6 +19,7 @@ export default Header
 const Container = styled.div`
     height: 100px;
     width: 100%;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     background-color: #AD7373;

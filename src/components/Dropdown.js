@@ -42,7 +42,7 @@ const Menu = () => {
             <ul>
                 <li><Link to="/">Início</Link></li>
                 <li><Link to="/login">Login</Link></li>
-                <li><Link to="/">Cadastro</Link></li>
+                <li><Link to="/cadastro">Cadastro</Link></li>
                 <li><Link to="/">Usuário</Link></li>
                 <li onClick={toggle}>Categorias</li>
                 { showSubMenu ? <SubMenu /> : null }
@@ -54,15 +54,15 @@ const Menu = () => {
 const SubMenu = () => (
     <SubContainer>
         <ul>
-            <li><Link to="/">Botas</Link></li>
-            <li><Link to="/">Moletons</Link></li>
+            <li><Link to="/produtos">Botas</Link></li>
+            <li><Link to="/produtos">Moletons</Link></li>
         </ul>
     </SubContainer>
 )
 
 const Container = styled.div`
     height: 100vh;
-    width: 50vw;
+    width: 200px;
     background-color: #AD7373;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
