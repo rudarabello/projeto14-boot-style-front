@@ -33,7 +33,7 @@ function RegisterForm() {
 
     function register(event) {
         event.preventDefault();
-        const URL = 'https://localhost:5000/usuarios';
+        const URL = 'https://localhost:5000/signup';
         const promise = axios.post(URL, registerData);
 
         promise.then(() => {

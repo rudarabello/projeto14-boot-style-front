@@ -4,6 +4,7 @@ import { useState } from "react";
 import Home from "../src/components/Home"
 import RegisterScreen from "./components/RegisterScreen";
 import Login from "../src/components/Login"
+import CheckoutScreen from "./components/CheckoutScreen";
 
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/cadastro" element={<RegisterScreen />} />
+                    <Route path="/checkout" element={<CheckoutScreen />} />
                 </Routes>
             </BrowserRouter>
         </Context.Provider>

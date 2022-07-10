@@ -1,5 +1,6 @@
-import {React, useState} from "react"
+import {React, useState, useEffect} from "react"
 import styled from "styled-components";
+import axios from "axios";
 
 export default function Products(){
     const [productsList, setProductsList] = useState([
@@ -39,6 +40,27 @@ export default function Products(){
             collection: "botas"
         },
     ])
+
+     
+    // useEffect(() => {
+    //     const config = {
+    //         headers: {
+    //             Authorization: `Bearer ${token}`
+    //         }
+    //     }
+
+    //     const URL = "https://localhost/5000/products"
+    //     const promise = axios.get(URL, config);
+
+    //     promise.then((res) => {
+    //         const { data } = res;
+    //         setProductsList([...data]);
+    //     });
+
+    //     promise.catch((err) => {
+    //         alert(err.message);
+    //     });
+    // }, []);
 
     console.log(productsList.length);
 
