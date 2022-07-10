@@ -2,151 +2,162 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import logo from "../assets/Boots.png";
+import Footer from "./Footer";
+
 
 export default function RegisterScreen() {
-    return (
-        <Container>
-            <p className='logo'>BS STORE</p>
-            <RegisterForm />
-        </Container>
-    );
-}
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-
-    .logo{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 32px;
-        margin-bottom: 20px;
-    }
-`
-
-function RegisterForm() {
     const navigate = useNavigate();
-
     function register(event) {
         event.preventDefault();
-        const URL = 'https://localhost:5000/usuarios';
+        const URL = "https://back-project-boot-style-back.herokuapp.com/usuarios";
         const promise = axios.post(URL, registerData);
-
         promise.then(() => {
             navigate("/");
         })
-
         promise.catch(() => {
             alert("Preenchido de forma incorreta ou usuário já foi cadastrado.");
         })
-
         setRegisterData()
     }
-
     const [registerData, setRegisterData] = useState({
         email: "",
         name: "",
         password: "",
         confirmPassword: ""
     });
-
-    const { email, name, password, confirmPassword} = registerData;
-
+    const { email, name, password, confirmPassword } = registerData;
     function handleForm(e) {
         setRegisterData({
             ...registerData,
             [e.target.name]: e.target.value,
         })
     }
-
     return (
-        <RegisterStyle onSubmit={register}>
-             <input
-                type="text"
-                id='name'
-                placeholder=' Nome'
-                required
-                name='name'
-                onChange={handleForm}
-                value={name}
-            />
-            <input
-                type="email"
-                id='email'
-                placeholder=' Email'
-                required
-                name='email'
-                onChange={handleForm}
-                value={email}
-            />
-            <input
-                type="text"
-                id='password'
-                placeholder=' Senha'
-                required
-                name='password'
-                onChange={handleForm}
-                value={password}
-            />
-            <input
-                type="url"
-                id='confirmPassword'
-                placeholder=' Confirme a sua Senha'
-                required
-                name='confirmPassword'
-                onChange={handleForm}
-                value={confirmPassword}
-            />
-
-            <button type='submit'>CADASTRAR</button>
-
-            <Link to={'/'}>
-                <p>Já tem uma conta? Faça Login!</p>
-            </Link>
-        </RegisterStyle>
+        <ContainerL>
+            <Page>
+                <img src={logo} alt="Logo loja" />
+                <Form onSubmit={register}>
+                    <Input
+                        type="text"
+                        id='name'
+                        placeholder=' Nome'
+                        required
+                        name='name'
+                        onChange={handleForm}
+                        value={name}
+                    />
+                    <Input
+                        type="email"
+                        id='email'
+                        placeholder=' Email'
+                        required
+                        name='email'
+                        onChange={handleForm}
+                        value={email}
+                    />
+                    <Input
+                        type="text"
+                        id='password'
+                        placeholder=' Senha'
+                        required
+                        name='password'
+                        onChange={handleForm}
+                        value={password}
+                    />
+                    <Input
+                        type="url"
+                        id='confirmPassword'
+                        placeholder=' Confirme a sua Senha'
+                        required
+                        name='confirmPassword'
+                        onChange={handleForm}
+                        value={confirmPassword}
+                    />
+                    <FormButton type='submit'>CADASTRAR</FormButton>
+                    </Form>
+                    <Linkto>
+                        <Link to="/login">
+                            <a href="https://git.heroku.com/boot-style-back.git/login">
+                                Já tem uma conta? Faça Login!
+                            </a>
+                        </Link>
+                    </Linkto>
+                    <Footer />
+                
+            </Page>
+        </ContainerL>
     );
 }
 
-const RegisterStyle = styled.form`
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-    input{
-        width: 280px;
-        height: 45px;
-        margin-bottom: 12px;
 
-        background: #FFFFFF;
-        border: 1px solid #D5D5D5;
-        border-radius: 5px;
+const ContainerL = styled.div`
+    height: 100vh;
+`;
+const Page = styled.div`
+display: flex;
+width: 100%;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+img{
+    margin-top: 50px;
+}
+`;
+const Form = styled.form`
+max-width: 240px;
+display: flex;
+flex-direction: column;
+gap: 6px;
+margin-bottom: 25px;
+`;
+const Input = styled.input`
+width: 100%;
+height: 45px;
+background: white;
+border: 1px solid #DBDBDB;
+border-radius: 8px;
+box-sizing: border-box;
+padding: 11px;
+margin-top: 20px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+color: #7E7E7E;
+`;
+const FormButton = styled.button`
+width: 100%;
+height: 45px;
+border: none;
+background: #AD7373;
+border-radius: 8px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+color: #FFFFFF;
+margin-top: 20px;
+`;
+const Linkto = styled.div`
+text-decoration: none !important;
+margin-bottom: 50px;
+a{
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 18px;
+color: #000000;
+text-decoration: none !important;
+}
+:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(999, 999, 999, 0.9);
     }
-
-    button {
-        width: 280px;
-        height: 45px;
-        margin-bottom: 5px;
-
-        background: #AD7373;
-        border-radius: 5px;
-        border-style: none;
-
-        color: #FFFFFF;
-        font-weight: bold;
-        font-size: 20.976px;
-    }
-
-    p {
-        font-weight: 400;
-        font-size: 13.976px;
-        line-height: 17px;
-        text-align: center;
-        text-decoration-line: underline; 
-        color: #7C3333;
-    }
-`
+`;

@@ -8,7 +8,7 @@ function Header() {
     return (
             <Container>
                 <Dropdown />
-                <Logo><img src={logo} width="100%" /></Logo>
+                <Logo><img src={logo} width="40%" /></Logo>
                 <DisplayCart />
             </Container>
     )
@@ -22,6 +22,8 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     background-color: #AD7373;
+    padding-left: 20px;
+    padding-right: 20px;
 `;
 const Logo = styled.div`
     display: flex;
