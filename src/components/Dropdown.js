@@ -62,7 +62,7 @@ const SubMenu = () => (
 
 const Container = styled.div`
     height: 100vh;
-    width: 50vw;
+    width: 200px;
     background-color: #AD7373;
     font-family: 'Inter', sans-serif;
     font-weight: 700;

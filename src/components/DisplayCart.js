@@ -21,8 +21,8 @@ function DisplayCart() {
         <div>
             <CartOutline onClick={toggle}
                     color={'#00000'}
-                    height="50px"
-                    width="50px" />
+                    height="35px"
+                    width="35px" />
             { showCart ? <Cart /> : null }
         </div>
     )
