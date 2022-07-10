@@ -4,7 +4,6 @@ import onClickOutside from "react-onclickoutside";
 import { MenuOutline } from "react-ionicons";
 import styled from "styled-components";
 
-
 function Dropdown() {
     const [showMenu, setShowMenu] = useState(false);
     const toggle = () => {
@@ -62,6 +61,7 @@ const SubMenu = () => (
 )
 
 const Container = styled.div`
+    height: 100vh;
     width: 50vw;
     background-color: #AD7373;
     font-family: 'Inter', sans-serif;
@@ -70,16 +70,20 @@ const Container = styled.div`
     color: #FFFFFF;
     position: fixed;
     z-index: 2;
-    top: 47px;
+    top: 100px;
     left: 0;
     
 
     li {
         height: 30px;
         padding-left: 15px;
-        border-bottom: 1px solid #FFFFFF;
+        border-top: 1px solid #FFFFFF;
         display: flex;
         align-items: center;
+    }
+
+    li:last-child {
+        border-bottom: 1px solid #FFFFFF;
     }
 
     a {
