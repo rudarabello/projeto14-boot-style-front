@@ -1,61 +1,35 @@
-import {React, useState} from "react"
+import {React, useState, useEffect} from "react"
+import axios from "axios";
 import styled from "styled-components";
 
 export default function Products(){
-    const [productsList, setProductsList] = useState([
-        {
-            id: 1,
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa1gFCmk4f7E2Xzk3LLy5zExrA-2ivcKOnAA&usqp=CAU",
-            tittle: "Botas",
-            price: "89.90",
-            collection: "botas"
-        },
-        {
-            id: 2,
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsnwrivsOQA0a4guEb9EkGJljaXEDXhtbNSQ&usqp=CAU",
-            tittle: "Botas 02",
-            price: "109.90",
-            collection: "botas"
-        },
-        {
-            id: 1,
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa1gFCmk4f7E2Xzk3LLy5zExrA-2ivcKOnAA&usqp=CAU",
-            tittle: "Botas",
-            price: "89.90",
-            collection: "botas"
-        },
-        {
-            id: 1,
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa1gFCmk4f7E2Xzk3LLy5zExrA-2ivcKOnAA&usqp=CAU",
-            tittle: "Botas",
-            price: "89.90",
-            collection: "botas"
-        },
-        {
-            id: 1,
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa1gFCmk4f7E2Xzk3LLy5zExrA-2ivcKOnAA&usqp=CAU",
-            tittle: "Botas",
-            price: "89.90",
-            collection: "botas"
-        },
-    ])
+    const [productsList, setProductsList] = useState([]);
+    const URL = "http://localhost:5000/products/";
+
+    useEffect(() => {
+        async function GetProducts() {
+            const { data } = await axios.get(URL);
+            setProductsList(data);
+        }
+        GetProducts();
+    }, [])
 
     console.log(productsList.length);
 
-    function buildProductsList(){
-        if(productsList.length > 0){
-            return productsList.map(product => {
-                const { id, url, tittle, price, collection} = product;
-                return <Product key={id} id={id} url={url} tittle={tittle} price={price} collection={collection}/>
-            })
-        } else {
-            return <p>LOADING ...</p>
-        }
-    }
+    const Product = productsList.map((product) => {
+        return (
+            <ProductContainer>
+                <img src={product.image}/>
+                <Tittle>{product.product}</Tittle>
+                <Price>{product.price}</Price>
+                <Button>COMPRAR</Button>
+            </ProductContainer>
+        )
+    })
 
     return(
         <Container>
-            {buildProductsList()}
+            {Product}
         </Container>
     );
 }
@@ -63,23 +37,8 @@ export default function Products(){
 const Container = styled.div`
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
     margin-top: 20px;
 `
-
-function Product(props){
-    const {id, url, tittle, price, collection} = props;
-
-    return (
-        <ProductContainer>
-            <img src={url}/>
-            <Tittle>{tittle}</Tittle>
-            <Price>{price}</Price>
-            <Button>COMPRAR</Button>
-        </ProductContainer>
-    );
-}
-
 
 const ProductContainer = styled.div`
     width: 185px;
