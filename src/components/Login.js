@@ -8,6 +8,7 @@ import Footer from "./Footer";
 
 
 
+
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -49,7 +50,7 @@ export default function Login() {
     return (
         <ContainerL>
             <Page>
-                <img src={logo} alt="Logo loja" />
+                <img onClick={() => navigate('/')} src={logo} alt="Logo loja" />
                 <Form onSubmit={handleLogin}>
                     <Input
                         onChange={(e) => {

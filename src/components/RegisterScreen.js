@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -36,7 +36,7 @@ export default function RegisterScreen() {
     return (
         <ContainerL>
             <Page>
-                <img src={logo} alt="Logo loja" />
+                <img onClick={() => navigate('/')} src={logo} alt="Logo loja" />
                 <Form onSubmit={register}>
                     <Input
                         type="text"
