@@ -14,7 +14,7 @@ function Cart() {
                     <span>Bota</span>
                 </LeftDiv>
                 <RightDiv>
-                    <TrashOutline color={'#00000'}
+                    <TrashOutline color={'#000000'}
                         height="15px"
                         width="15px" />
                     <span>R$99.90</span>
@@ -26,7 +26,7 @@ function Cart() {
                     <span>Bota</span>
                 </LeftDiv>
                 <RightDiv>
-                    <TrashOutline color={'#00000'}
+                    <TrashOutline color={'#000000'}
                         height="15px"
                         width="15px" />
                     <span>R$99.90</span>
