@@ -70,16 +70,20 @@ const Container = styled.div`
     color: #FFFFFF;
     position: fixed;
     z-index: 2;
-    top: 47px;
+    top: 100px;
     left: 0;
     
 
     li {
         height: 30px;
         padding-left: 15px;
-        border-bottom: 1px solid #FFFFFF;
+        border-top: 1px solid #FFFFFF;
         display: flex;
         align-items: center;
+    }
+
+    li:last-child {
+        border-bottom: 1px solid #FFFFFF;
     }
 
     a {

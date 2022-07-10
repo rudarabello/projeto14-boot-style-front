@@ -1,37 +1,10 @@
-import { useState } from "react";
-import { CartOutline, TrashOutline } from "react-ionicons";
+import { useContext } from "react";
+import { TrashOutline } from "react-ionicons";
 import { Link } from "react-router-dom";
-import onClickOutside from "react-onclickoutside";
 import styled from "styled-components";
+import Context from "../contexts/Context";
 
-function DisplayCart() {
-    const [showCart, setShowCart] = useState(false);
-
-    const toggle = () => {
-        if (showCart === false) {
-            setShowCart(true);
-        } else {setShowCart(false)};
-    }
-
-    Cart.handleClickOutside = () => setShowCart(false);
-
-    return (
-        <div>
-            <CartOutline onClick={toggle}
-                    color={'#00000'}
-                    height="50px"
-                    width="50px" />
-            { showCart ? <Cart /> : null }
-        </div>
-    )
-
-}
-
-const clickOutsideCart = {
-    handleClickOutside: () => Cart.handleClickOutside,
-};
-
-const Cart = () => {
+function Cart() {
     return (
         <Container>
             <CartHeader>
@@ -84,7 +57,7 @@ const Container = styled.div`
     flex-direction: column;
     position: fixed;
     z-index: 2;
-    top: 162px;
+    top: 100px;
     right: 0;
 `
 
@@ -177,4 +150,4 @@ const Confirm = styled.div`
     }
 `
 
-export default onClickOutside(DisplayCart, clickOutsideCart);
+export default Cart;

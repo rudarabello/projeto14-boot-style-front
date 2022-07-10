@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from '../assets/Boots.png'
-import DisplayCart from "./Cart";
+import DisplayCart from "./DisplayCart";
 import Dropdown from "./Dropdown";
 
 function Header() {
@@ -17,6 +17,7 @@ function Header() {
 export default Header
 
 const Container = styled.div`
+    height: 100px;
     width: 100%;
     display: flex;
     align-items: center;
