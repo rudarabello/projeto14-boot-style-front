@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 import Banner from './Banner';
-import Boots from './Boots';
-import Hoods from './Hoods';
+import Products from './Products';
 import Footer from './Footer';
 
 const Home = () => {
@@ -11,8 +10,7 @@ const Home = () => {
         <Container>
             <Header />
             <Banner />
-            <Boots />
-            <Hoods />
+            <Products />
             <Footer />
         </Container>
     );
