@@ -8,6 +8,7 @@ import Footer from "./Footer";
 
 
 
+
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -49,7 +50,7 @@ export default function Login() {
     return (
         <ContainerL>
             <Page>
-                <img src={logo} alt="Logo loja" />
+                <img onClick={() => navigate('/')} src={logo} alt="Logo loja" />
                 <Form onSubmit={handleLogin}>
                     <Input
                         onChange={(e) => {
@@ -72,7 +73,7 @@ export default function Login() {
                     <FormButton type="submit">ENTRAR</FormButton>
                 </Form>
                 <Linkto>
-                    <Link to="/sign-up">
+                    <Link to="/cadastro">
                         <a href="https://git.heroku.com/boot-style-back.git/home">
                             Primeira vez? Cadastre-se!
                         </a>
@@ -138,7 +139,7 @@ margin-top: 20px;
 `;
 const Linkto = styled.div`
 text-decoration: none !important;
-margin-bottom: 50px;
+margin-bottom: 120px;
 a{
 font-family: 'Raleway';
 font-style: normal;
@@ -147,7 +148,6 @@ font-size: 15px;
 line-height: 18px;
 color: #000000;
 text-decoration: none !important;
-margin-bottom: 50px;
 }
 :hover {
     cursor: pointer;
