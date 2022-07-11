@@ -66,7 +66,7 @@ export default function RegisterScreen() {
                         value={password}
                     />
                     <Input
-                        type="url"
+                        type="text"
                         id='confirmPassword'
                         placeholder=' Confirme a sua Senha'
                         required

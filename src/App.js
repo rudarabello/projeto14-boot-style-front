@@ -4,6 +4,7 @@ import { useState } from "react";
 import Home from "../src/components/Home"
 import RegisterScreen from "./components/RegisterScreen";
 import Login from "../src/components/Login";
+import Checkout from "../src/components/Checkout";
 import Payment from "../src/components/Payment";
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/cadastro" element={<RegisterScreen />} />
+                    <Route path="/checkout" element={<Checkout />} />
                     <Route path="/pagamento" element={<Payment />} />
                 </Routes>
             </BrowserRouter>
