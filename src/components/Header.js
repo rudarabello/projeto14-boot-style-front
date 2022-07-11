@@ -32,6 +32,7 @@ const Logo = styled.div`
     width: 100%;
     img {
     display: block;
+    max-width: 200px;
     margin-left: auto;
     margin-right: auto;
 }

@@ -15,7 +15,7 @@ export default function Login() {
     const localUser = localStorage.getItem("user");
     const navigate = useNavigate()
     const { data, setData } = useContext(Context);
-    const URL = "http://localhost:5000/login";
+    const URL = "https://back-project-boot-style-back.herokuapp.com/login";
     const tempAxiosFunction = useRef();
     const axiosFunction = () => {
         if (localUser !== null) {
@@ -74,7 +74,7 @@ export default function Login() {
                 </Form>
                 <Linkto>
                     <Link to="/cadastro">
-                        <a href="https://git.heroku.com/boot-style-back.git/home">
+                        <a href="https://back-project-boot-style-back.herokuapp.com/cadastro">
                             Primeira vez? Cadastre-se!
                         </a>
                     </Link>

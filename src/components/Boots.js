@@ -1,48 +1,53 @@
-import {React, useState, useEffect} from "react"
+import { React, useState, useEffect } from "react"
 import axios from "axios";
 import styled from "styled-components";
 
 export default function Boots() {
   const [productsList, setProductsList] = useState([]);
-    const URL = "http://localhost:5000/products";
+  const URL = "https://back-project-boot-style-back.herokuapp.com/products";
 
   useEffect(() => {
     async function GetBoots() {
-        const config = {
-            headers:{
-              category: "Botas"
-            }
-          };
-        const { data } = await axios.get(URL, config);
-        setProductsList(data);
+      const config = {
+        headers: {
+          category: "Botas"
+        }
+      };
+      const { data } = await axios.get(URL, config);
+      setProductsList(data)
     }
     GetBoots();
   }, [])
+  console.log(productsList)
 
-  const Boot = productsList.map((product) => {
-    return (
-      <ProductContainer>
-          <img src={product.image}/>
-          <Tittle>{product.product}</Tittle>
-          <Price>{product.price}</Price>
+  return (
+    <Container>
+      {productsList.map(p => { return (
+        <ProductContainer>
+          <img src={p.image} />
+          <Tittle >{p.product}</Tittle>
+          <Price >{p.price}</Price>
           <Button>COMPRAR</Button>
-      </ProductContainer>
-    )
-  })
-
-  return(
-      <Container>
-          {Boot}
-      </Container>
+        </ ProductContainer>)
+      })}
+    </Container>
   );
-}
+};
 
 const Container = styled.div`
-    width: 100vw;
+    background-color: #FFFFFF;
+    width: 185px;
+    min-height: 276px;
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
     overflow-y: scroll;
+    img {
+        height: 185px;
+        width: 185px;
+    }
 `
 
 const ProductContainer = styled.div`
@@ -51,9 +56,7 @@ const ProductContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
     margin-right: 10px;
-
     img {
         height: 185px;
         width: 185px;
@@ -61,7 +64,11 @@ const ProductContainer = styled.div`
 `
 
 const Tittle = styled.p`
-
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
 `
 const Price = styled.p`
     font-weight: bold;

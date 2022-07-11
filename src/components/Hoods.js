@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export default function Hoods() {
   const [productsList, setProductsList] = useState([]);
-    const URL = "http://localhost:5000/products";
+    const URL = "https://back-project-boot-style-back.herokuapp.com/products";
 
   useEffect(() => {
     async function GetHoods() {
@@ -18,7 +18,7 @@ export default function Hoods() {
     }
     GetHoods();
   }, [])
-
+  console.log(productsList)
   const Hood = productsList.map((product) => {
     return (
       <ProductContainer>
