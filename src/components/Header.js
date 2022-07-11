@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import logo from '../assets/Boots.png'
 import DisplayCart from "./DisplayCart";
 import Dropdown from "./Dropdown";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
-    
+    const navigate = useNavigate()
     return (
             <Container>
                 <Dropdown />
-                <Logo><img src={logo} width="40%" /></Logo>
+                <Logo onClick={() => navigate('/')} ><img src={logo} width="40%" /></Logo>
                 <DisplayCart />
             </Container>
     )
