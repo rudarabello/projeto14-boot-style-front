@@ -3,8 +3,7 @@ import Context from "./contexts/Context";
 import { useState } from "react";
 import Home from "../src/components/Home"
 import RegisterScreen from "./components/RegisterScreen";
-import Login from "../src/components/Login"
-import Products from "../src/components/Products"
+import Login from "../src/components/Login";
 
 export default function App() {
     const [data, setData] = useState([{}]);

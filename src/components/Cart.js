@@ -1,37 +1,61 @@
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import { TrashOutline } from "react-ionicons";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Context from "../contexts/Context"; 
 
 function Cart() {
+    const { data } = useContext(Context);
+    console.log(data);
+    const [cartItems, setCartItems] = useState();
+    const URL = "http://localhost:5000/cart";
+    const config = {
+        headers: {
+            Authorization: `Bearer ${data.token}`
+        }
+    };
+    console.log(config)
+    useEffect(() => {
+        const promise = axios.get(URL, config);
+        promise.then(response => setCartItems(response.data));
+        promise.then(response => console.log(response.data));
+        promise.catch(error => console.log(error));
+    }, []);
+
+    function RenderItems() {
+        if (!cartItems) {
+            return (
+                <div><p>Seu carrinho está vazio</p></div>
+            )
+        };
+
+        cartItems && cartItems.map((item, index) => {
+            const { name, price, image } = item;
+
+            return (
+                <CartItem>
+                    <LeftDiv>
+                        <img src={image} alt="product" />
+                        <span>{name}</span>
+                    </LeftDiv>
+                    <RightDiv>
+                        <TrashOutline color={'#000000'}
+                            height="15px"
+                            width="15px" />
+                        <span>{price}</span>
+                    </RightDiv>
+                </CartItem>
+            )
+        })
+    }
+
     return (
         <Container>
             <CartHeader>
                 <h1>Seu carrinho</h1>
             </CartHeader>
-            <CartItem>
-                <LeftDiv>
-                    <img src="https://www.cheaney.co.uk/images/cheaney-trudie-capped-derby-boot-in-black-calf-leather-p942-6626_zoom.jpg" alt="product" />
-                    <span>Bota</span>
-                </LeftDiv>
-                <RightDiv>
-                    <TrashOutline color={'#000000'}
-                        height="15px"
-                        width="15px" />
-                    <span>R$99.90</span>
-                </RightDiv>
-            </CartItem>
-            <CartItem>
-                <LeftDiv>
-                    <img src="https://www.cheaney.co.uk/images/cheaney-trudie-capped-derby-boot-in-black-calf-leather-p942-6626_zoom.jpg" alt="product" />
-                    <span>Bota</span>
-                </LeftDiv>
-                <RightDiv>
-                    <TrashOutline color={'#000000'}
-                        height="15px"
-                        width="15px" />
-                    <span>R$99.90</span>
-                </RightDiv>
-            </CartItem>
+            {RenderItems}
             <CartTotal>
                 <h2>Total:</h2>
                 <h2>$$$</h2>

@@ -1,14 +1,21 @@
-import React from 'react'
+import { React, useContext } from 'react'
 import styled from 'styled-components'
 import logo from '../assets/Boots.png'
 import DisplayCart from "./DisplayCart";
 import Dropdown from "./Dropdown";
+import Context from "../contexts/Context";  
 
 function Header() {
+    const  { data } = useContext(Context)
+
+    function teste() {
+        console.log(data); 
+    }
+
     return (
             <Container>
                 <Dropdown />
-                <Logo><img src={logo} width="40%" /></Logo>
+                <Logo><img onClick={teste} src={logo} width="40%" /></Logo>
                 <DisplayCart />
             </Container>
     )
