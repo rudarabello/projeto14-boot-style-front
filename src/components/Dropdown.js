@@ -43,22 +43,10 @@ const Menu = () => {
                 <li><Link to="/">Início</Link></li>
                 <li><Link to="/login">Login</Link></li>
                 <li><Link to="/cadastro">Cadastro</Link></li>
-                <li><Link to="/">Usuário</Link></li>
-                <li onClick={toggle}>Categorias</li>
-                { showSubMenu ? <SubMenu /> : null }
             </ul>
         </Container>
     )
 }
-
-const SubMenu = () => (
-    <SubContainer>
-        <ul>
-            <li><Link to="/produtos">Botas</Link></li>
-            <li><Link to="/produtos">Moletons</Link></li>
-        </ul>
-    </SubContainer>
-)
 
 const Container = styled.div`
     height: 100vh;
@@ -89,15 +77,6 @@ const Container = styled.div`
     a {
         color: #FFFFFF;
         text-decoration: none;    
-    }
-`
-
-const SubContainer = styled.div`
-    font-size: 14px;
-
-    li {
-        height: 25px;
-        padding-left: 30px;
     }
 `
 

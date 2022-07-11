@@ -38,6 +38,8 @@ export default function Hoods() {
 }
 
 const Container = styled.div`
+    width: 100vw;
+    overflow-y: scroll;
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
