@@ -1,4 +1,3 @@
-import { TrashOutline } from "react-ionicons";
 import styled from "styled-components";
 
 export default function CartItem({ product, price, image }) {
@@ -10,9 +9,6 @@ export default function CartItem({ product, price, image }) {
                 <span>{product}</span>
             </LeftDiv>
             <RightDiv>
-                <TrashOutline color={'#000000'}
-                    height="15px"
-                    width="15px" />
                 <span>{price}</span>
             </RightDiv>
         </Container>
@@ -49,5 +45,5 @@ const RightDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: center;
 `
