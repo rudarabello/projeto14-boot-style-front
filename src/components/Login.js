@@ -14,8 +14,8 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const localUser = localStorage.getItem("user");
     const navigate = useNavigate()
-    const { setData } = useContext(Context);
-    const URL = "https://back-project-boot-style-back.herokuapp.com/login";
+    const { data, setData } = useContext(Context);
+    const URL = "http://localhost:5000/login";
     const tempAxiosFunction = useRef();
     const axiosFunction = () => {
         if (localUser !== null) {
@@ -48,7 +48,7 @@ export default function Login() {
         navigate('/');
     };
     return (
-        <ContainerL>
+        <Container>
             <Page>
                 <img onClick={() => navigate('/')} src={logo} alt="Logo loja" />
                 <Form onSubmit={handleLogin}>
@@ -81,11 +81,11 @@ export default function Login() {
                 </Linkto>
             </Page>
             <Footer />
-        </ContainerL>
+        </Container>
     )
 };
 
-const ContainerL = styled.div`
+const Container = styled.div`
     height: 100vh;
 `;
 const Page = styled.div`

@@ -1,17 +1,13 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { CartOutline } from "react-ionicons";
 import onClickOutside from "react-onclickoutside";
-import Context from "../contexts/Context";
 import Cart from "./Cart";
 
 function DisplayCart() {
     const [showCart, setShowCart] = useState(false);
-    const { userCart } = useContext(Context)
-
     const toggle = () => {
         if (showCart === false) {
             setShowCart(true);
-            console.log(userCart);
         } else {setShowCart(false)};
     }
 
@@ -23,7 +19,7 @@ function DisplayCart() {
                     color={'#00000'}
                     height="35px"
                     width="35px" />
-            { showCart ? <Cart /> : null }
+            { showCart ? <Cart /> : "" }
         </div>
     )
 }
