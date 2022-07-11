@@ -18,8 +18,6 @@ export default function Boots() {
     }
     GetBoots();
   }, [])
-  console.log(productsList)
-
   return (
     <Container>
       {productsList.map(p => { return (
@@ -36,14 +34,15 @@ export default function Boots() {
 
 const Container = styled.div`
     background-color: #FFFFFF;
-    width: 185px;
-    min-height: 276px;
+    width: 100%;
+    height: 276px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-    overflow-y: scroll;
+    overflow-x: scroll;
+    padding-left: 250px;
     img {
         height: 185px;
         width: 185px;

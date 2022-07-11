@@ -18,21 +18,20 @@ export default function Hoods() {
     }
     GetHoods();
   }, [])
-  console.log(productsList)
-  const Hood = productsList.map((product) => {
+  
+
+  return(
+      <Container>
+      {productsList.map((product) => {
     return (
       <ProductContainer>
           <img src={product.image}/>
           <Tittle>{product.product}</Tittle>
           <Price>{product.price}</Price>
           <Button>COMPRAR</Button>
-      </ProductContainer>
+      </ProductContainer>)}
     )
-  })
-
-  return(
-      <Container>
-          {Hood}
+  }
       </Container>
   );
 }
