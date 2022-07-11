@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Context from "./contexts/Context";
 import { useState } from "react";
 import Home from "../src/components/Home"
-import RegisterScreen from "../components/RegisterScreen";
+import RegisterScreen from "./components/RegisterScreen";
 import Login from "../src/components/Login";
 import Checkout from "../src/components/Checkout";
 import Payment from "../src/components/Payment";
