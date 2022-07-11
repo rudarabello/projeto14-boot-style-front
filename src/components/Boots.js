@@ -38,9 +38,11 @@ export default function Boots() {
 }
 
 const Container = styled.div`
+    width: 100vw;
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+    overflow-y: scroll;
 `
 
 const ProductContainer = styled.div`

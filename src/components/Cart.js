@@ -1,53 +1,66 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { TrashOutline } from "react-ionicons";
 import { Link } from "react-router-dom";
+import CartItem from "./CartItem"
 import styled from "styled-components";
 import Context from "../contexts/Context"; 
 
 function Cart() {
     const { data } = useContext(Context);
-    console.log(data);
-    const [cartItems, setCartItems] = useState();
+    const [cartItems, setCartItems] = useState([]);
+    const [totalCost, setTotalCost] = useState();
     const URL = "http://localhost:5000/cart";
     const config = {
         headers: {
             Authorization: `Bearer ${data.token}`
         }
     };
-    console.log(config)
+
     useEffect(() => {
         const promise = axios.get(URL, config);
         promise.then(response => setCartItems(response.data));
-        promise.then(response => console.log(response.data));
         promise.catch(error => console.log(error));
     }, []);
 
+    useEffect(() => {
+        if (typeof(cartItems) === "object") {
+            const prices = cartItems.map(({ price }) => { return price });
+            let total = 0;
+            for (let j = 0; j < prices.length; j++) {
+                total += parseFloat(prices[j])
+            }
+            setTotalCost(total.toFixed(2));
+        }
+    }, [cartItems])
+
     function RenderItems() {
-        if (!cartItems) {
+        if (typeof(cartItems) === "object") {
+            return cartItems.map(({ product, image, price }, index) => <CartItem key={index} product={product} image={image} price={price} />);
+        } else {
             return (
-                <div><p>Seu carrinho está vazio</p></div>
+                <EmptyContainer>
+                    <p>Seu carrinho está vazio</p>
+                </EmptyContainer>    
             )
-        };
+        }   
+    }
 
-        cartItems && cartItems.map((item, index) => {
-            const { name, price, image } = item;
-
+    function RenderFooter() {
+        if (typeof(cartItems) === "object") {
             return (
-                <CartItem>
-                    <LeftDiv>
-                        <img src={image} alt="product" />
-                        <span>{name}</span>
-                    </LeftDiv>
-                    <RightDiv>
-                        <TrashOutline color={'#000000'}
-                            height="15px"
-                            width="15px" />
-                        <span>{price}</span>
-                    </RightDiv>
-                </CartItem>
+                <>
+                    <CartTotal>
+                        <h2>Total:</h2>
+                        <h2>R$ {totalCost}</h2>
+                    </CartTotal>
+                    <CartFooter>
+                        <Confirm>
+                            <h2>FINALIZAR COMPRA</h2>
+                        </Confirm>
+                    </CartFooter>
+                </>
             )
-        })
+        }
     }
 
     return (
@@ -55,20 +68,18 @@ function Cart() {
             <CartHeader>
                 <h1>Seu carrinho</h1>
             </CartHeader>
-            {RenderItems}
-            <CartTotal>
-                <h2>Total:</h2>
-                <h2>$$$</h2>
-            </CartTotal>
-            <CartFooter>
-                <Confirm>
-                    <h2>FINALIZAR COMPRA</h2>
-                </Confirm>
-                <Link to="/produtos"><h3>Ver mais produtos</h3></Link>
-            </CartFooter>
+            {RenderItems()}
+            {RenderFooter()}
         </Container>
     )
 }
+
+const EmptyContainer = styled.div`
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 
 const Container = styled.div`
     height: 100vh;
@@ -108,39 +119,6 @@ const CartTotal = styled.div`
         font-size: 22px;
         color: #000000;
     }
-`
-
-const CartItem = styled.div`
-    height: 115px;
-    margin: 0 20px;
-    padding: 25px 0;
-    border-bottom: 1px solid #C4C1C1;
-    display: flex;
-    justify-content: space-between;
-
-    img {
-        height: 67px;
-        width: 67px;
-    }
-
-    span {
-        font-weight: 400;
-        font-size: 14px;
-        color: #000000;
-    }
-`
-
-const LeftDiv = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-`
-
-const RightDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
 `
 
 const CartFooter = styled.div`
