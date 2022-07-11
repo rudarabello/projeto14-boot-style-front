@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import Header from './Header';
+import Footer from './Footer';
 import CartItem from "./CartItem"
-import styled from "styled-components";
 import Context from "../contexts/Context"; 
 
-function Cart() {
+function Payment() {
     const { data } = useContext(Context);
     const [cartItems, setCartItems] = useState([]);
     const [totalCost, setTotalCost] = useState();
@@ -63,50 +65,78 @@ function Cart() {
         }
     }
 
+
     return (
         <Container>
-            <CartHeader>
-                <h1>Seu carrinho</h1>
-            </CartHeader>
-            {RenderItems()}
-            {RenderFooter()}
+            <Header />
+            <PaymentOptions>
+                <h2>Forma de pagamento</h2>
+                <button>Cartão de crédito</button>
+                <button>Pix</button>
+                <button>Boleto bancário</button>
+            </PaymentOptions>
+            <RenderContainer>
+                <h2>Resumo do pedido</h2>
+                {RenderItems()}
+                {RenderFooter()}
+            </RenderContainer>
+            <Footer />
         </Container>
     )
 }
+
+const Container = styled.div`
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        padding: 20px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+    }
+`
+
+const PaymentOptions = styled.div`
+    width: 100vw;
+    background-color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    button {
+        width: 280px;
+        height: 45px;
+        margin-bottom: 10px;
+        padding-left: 15px;
+        background-color: #FFFFFF;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        font-weight: 700;
+        font-size: 14px;
+        text-align: left;
+        
+    }
+`
+
+const RenderContainer = styled.div`
+    width: 100vw;
+    background-color: #FFFFFF;
+    border-top: 1px solid #FFFFFF; 
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`
 
 const EmptyContainer = styled.div`
     padding-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
-`
-
-const Container = styled.div`
-    height: 100vh;
-    width: 100vw;
-    background-color: #FFFFFF;
-    border-top: 1px solid #FFFFFF; 
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    z-index: 2;
-    top: 100px;
-    right: 0;
-`
-
-const CartHeader = styled.div`
-    height: 50px;
-    padding: 15px;
-    background-color: #AD7373;
-    display: flex;
-    align-items: center;
-
-    h1 {
-        font-weight: 700;
-        font-size: 16px;
-        color: #000000;
-    }   
 `
 
 const CartTotal = styled.div`
@@ -137,6 +167,7 @@ const CartFooter = styled.div`
 
 const Confirm = styled.div`
     height: 40px;
+    margin-bottom: 20px;
     padding: 0 45px;
     border-radius: 20px;
     background-color: #AD7373;
@@ -151,4 +182,4 @@ const Confirm = styled.div`
     }
 `
 
-export default Cart;
+export default Payment;

@@ -2,10 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Context from "./contexts/Context";
 import { useState } from "react";
 import Home from "../src/components/Home"
-import RegisterScreen from "./components/RegisterScreen";
+import RegisterScreen from "../components/RegisterScreen";
 import Login from "../src/components/Login";
-import Checkout from "./components/Checkout";
-
+import Checkout from "../src/components/Checkout";
+import Payment from "../src/components/Payment";
 
 export default function App() {
     const [data, setData] = useState([{}]);
@@ -17,6 +17,7 @@ export default function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/cadastro" element={<RegisterScreen />} />
                     <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/pagamento" element={<Payment />} />
                 </Routes>
             </BrowserRouter>
         </Context.Provider>

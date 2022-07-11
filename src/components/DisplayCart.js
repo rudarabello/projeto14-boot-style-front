@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { CartOutline } from "react-ionicons";
 import onClickOutside from "react-onclickoutside";
+import Context from "../contexts/Context";
 import Cart from "./Cart";
 
 function DisplayCart() {
+    const { data } = useContext(Context)
     const [showCart, setShowCart] = useState(false);
+    
     const toggle = () => {
-        if (showCart === false) {
-            setShowCart(true);
-        } else {setShowCart(false)};
+        if (data.token) {
+            if (showCart === false) {
+                setShowCart(true);
+            } else {setShowCart(false)};
+        } else {
+            alert("Você não está logado!");
+        }
+        
     }
 
     Cart.handleClickOutside = () => setShowCart(false);
