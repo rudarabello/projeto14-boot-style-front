@@ -26,7 +26,7 @@ export default function RegisterScreen() {
         password: "",
         confirmPassword: ""
     });
-    const { email, name, password, confirmPassword, phoneNumber, cep, city, andress, district, number} = registerData;
+    const { email, name, password, confirmPassword } = registerData;
     function handleForm(e) {
         setRegisterData({
             ...registerData,
@@ -66,7 +66,7 @@ export default function RegisterScreen() {
                         value={password}
                     />
                     <Input
-                        type="url"
+                        type="text"
                         id='confirmPassword'
                         placeholder=' Confirme a sua Senha'
                         required
@@ -74,65 +74,6 @@ export default function RegisterScreen() {
                         onChange={handleForm}
                         value={confirmPassword}
                     />
-
-                    <Input
-                        type="text"
-                        id='phoneNumber'
-                        placeholder=' Número do celular'
-                        required
-                        name='phoneNumber'
-                        onChange={handleForm}
-                        value={phoneNumber}
-                    />
-
-                    <label>Dados de Entrega:</label>
-                    <Input
-                        type="text"
-                        id='cep'
-                        placeholder=' CEP'
-                        required
-                        name='cep'
-                        onChange={handleForm}
-                        value={cep}
-                    />
-                    <Input
-                        type="text"
-                        id='city'
-                        placeholder=' Cidade'
-                        required
-                        name='city'
-                        onChange={handleForm}
-                        value={city}
-                    />
-                    <Input
-                        type="url"
-                        id='andress'
-                        placeholder=' Endereço'
-                        required
-                        name='andress'
-                        onChange={handleForm}
-                        value={andress}
-                    />
-                    <Input
-                        type="url"
-                        id='district'
-                        placeholder=' Bairro'
-                        required
-                        name='district'
-                        onChange={handleForm}
-                        value={district}
-                    />
-                    <Input
-                        type="number"
-                        id='number'
-                        placeholder=' Número'
-                        required
-                        name='number'
-                        onChange={handleForm}
-                        value={number}
-                    />
-
-
                     <FormButton type='submit'>CADASTRAR</FormButton>
                     </Form>
                     <Linkto>
