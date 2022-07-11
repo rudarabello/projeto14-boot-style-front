@@ -42,7 +42,7 @@ const Container = styled.div`
     justify-content: center;
     margin-right: 10px;
     overflow-x: scroll;
-    padding-left: 250px;
+    padding-left: 380px;
     img {
         height: 185px;
         width: 185px;
@@ -50,7 +50,8 @@ const Container = styled.div`
 `
 
 const ProductContainer = styled.div`
-    width: 185px;
+    padding-left: 80px;
+    min-width: 250px;
     height: 276px;
     display: flex;
     flex-direction: column;
