@@ -11,7 +11,7 @@ function Payment() {
     const { data } = useContext(Context);
     const [cartItems, setCartItems] = useState([]);
     const [totalCost, setTotalCost] = useState();
-    const URL = "http://localhost:5000/cart";
+    const URL = "https://back-project-boot-style-back.herokuapp.com/cart";
     const config = {
         headers: {
             Authorization: `Bearer ${data.token}`
