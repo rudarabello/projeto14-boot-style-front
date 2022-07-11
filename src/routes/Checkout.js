@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Cart from './Cart';
+import Cart from '../components/Cart';
 import Context from "../contexts/Context";  
 
 export default function Checkout() {

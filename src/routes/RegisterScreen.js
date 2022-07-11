@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import logo from "../assets/Boots.png";
-import Footer from "./Footer";
+import Footer from "../components/Footer";
 
 
 export default function RegisterScreen() {

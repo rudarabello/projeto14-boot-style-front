@@ -2,9 +2,9 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import Header from './Header';
-import Footer from './Footer';
-import CartItem from "./CartItem"
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import CartItem from "../components/CartItem"
 import Context from "../contexts/Context"; 
 
 function Payment() {

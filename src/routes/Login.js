@@ -4,7 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 import Context from "../contexts/Context";
 import logo from "../assets/Boots.png";
-import Footer from "./Footer";
+import Footer from "../components/Footer";
 
 
 
